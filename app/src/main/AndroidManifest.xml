@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="damiano.airports">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".Airports"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".BZG.BydgoszczBZG"
+            android:label="@string/title_activity_bydgoszcz_bzg"
+            android:parentActivityName=".Airports"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="damiano.airports.Airports" />
+        </activity>
+        <activity
+            android:name=".BZG.BydgoszczBZGFlights"
+            android:label="@string/title_activity_bydgoszcz_bzgflights"
+            android:parentActivityName=".BZG.BydgoszczBZG"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="damiano.airports.BZG.BydgoszczBZG" />
+        </activity>
+        <activity
+            android:name=".BZG.BydgoszczBZGArrivals"
+            android:label="@string/title_activity_bydgoszcz_bzgarrivals"
+            android:parentActivityName=".BZG.BydgoszczBZG"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="damiano.airports.BZG.BydgoszczBZG" />
+        </activity>
+        <activity
+            android:name=".BZG.BydgoszczBZGDepartures"
+            android:label="@string/title_activity_bydgoszcz_bzgdelivers"
+            android:parentActivityName=".BZG.BydgoszczBZG"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="damiano.airports.BZG.BydgoszczBZG" />
+        </activity>
+        <activity
+            android:name=".GDN.GdanskGDN"
+            android:label="@string/title_activity_gdansk_gdn"
+            android:parentActivityName=".Airports"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="damiano.airports.Airports" />
+        </activity>
+        <activity
+            android:name=".GDN.GdanskGDNArrivals"
+            android:label="@string/title_activity_gdansk_gdnarrivals"
+            android:parentActivityName=".GDN.GdanskGDN"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="damiano.airports.GDN.GdanskGDN" />
+        </activity>
+        <activity
+            android:name=".GDN.GdanskGDNDepartures"
+            android:label="@string/title_activity_gdansk_gdndepartures"
+            android:parentActivityName=".GDN.GdanskGDN"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="damiano.airports.GDN.GdanskGDN" />
+        </activity>
+        <activity
+            android:name=".GDN.GdanskGDNFlights"
+            android:label="@string/title_activity_gdansk_gdnflights"
+            android:parentActivityName=".GDN.GdanskGDN"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="damiano.airports.GDN.GdanskGDN" />
+        </activity>
+    </application>
+
+</manifest>

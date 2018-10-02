@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Airports</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_bydgoszcz_bzg">BydgoszczBZG</string>
+    <string name="title_activity_bydgoszcz_bzgflights">BydgoszczBZGFlights</string>
+    <string name="title_activity_bydgoszcz_bzgarrivals">BydgoszczBZGArrivals</string>
+    <string name="title_activity_bydgoszcz_bzgdelivers">BydgoszczBZGDelivers</string>
+    <string name="title_activity_gdansk_gdn">GdanskGDN</string>
+    <string name="title_activity_gdansk_gdnarrivals">GdanskGDNArrivals</string>
+    <string name="title_activity_gdansk_gdndepartures">GdanskGDNDepartures</string>
+    <string name="title_activity_gdansk_gdnflights">GdanskGDNFlights</string>
+</resources>
