@@ -85,15 +85,6 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="damiano.airports.GDN.GdanskGDN" />
         </activity>
-        <activity
-            android:name=".GDN.GdanskGDNFlights"
-            android:label="@string/title_activity_gdansk_gdnflights"
-            android:parentActivityName=".GDN.GdanskGDN"
-            android:theme="@style/AppTheme.NoActionBar">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="damiano.airports.GDN.GdanskGDN" />
-        </activity>
     </application>
 
 </manifest>

@@ -22,10 +22,6 @@ public class GdanskGDN extends AppCompatActivity {
     public void click(View view) {
         Intent intent;
         switch (view.getId()){
-            case R.id.GDNButtonFlights:
-                intent = new Intent(this, GdanskGDNFlights.class);
-                startActivity(intent);
-                break;
             case R.id.GDNButtonArrivals:
                 intent = new Intent(this, GdanskGDNArrivals.class);
                 startActivity(intent);
