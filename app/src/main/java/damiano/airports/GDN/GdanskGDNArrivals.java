@@ -6,7 +6,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
-import android.widget.TextView;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -24,7 +23,6 @@ public class GdanskGDNArrivals extends AppCompatActivity {
     private String name = "GDN Gdansk Arrivals";
     private String urlAirport = "http://www.airport.gdansk.pl/schedule/arrivals-table";
     private Document htmlCode;
-//    private TextView GDNArrivalsTitleTextView;
 
     private static final String TAG = "MainActivity";
 
@@ -36,8 +34,6 @@ public class GdanskGDNArrivals extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gdansk_gdnarrivals);
         Log.d(TAG, "onCreate: started.");
-//        GDNArrivalsTitleTextView = findViewById(R.id.GDNArrivalsTitleTextView);
-//        GDNArrivalsTitleTextView.setText(name);
         initImageBitmaps();
     }
 
@@ -48,10 +44,12 @@ public class GdanskGDNArrivals extends AppCompatActivity {
 
     private void initRecyclerView() {
         Log.d(TAG, "initRecyclerView: init recyclerview.");
-        RecyclerView recyclerView = findViewById(R.id.recycler_view);
-        RecyclerViewAdapter adapter = new RecyclerViewAdapter(this, names, imageUrls);
-        recyclerView.setAdapter(adapter);
+        RecyclerView recyclerView = findViewById(R.id.gdn_arrivals_recycler_view);
+        recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        RecyclerViewAdapterGDNArrivals adapter = new RecyclerViewAdapterGDNArrivals(this, names, imageUrls);
+        recyclerView.setAdapter(adapter);
+
     }
 
     public class DownloadFlights extends AsyncTask<Void, Void, Void> {

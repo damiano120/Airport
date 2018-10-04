@@ -31,7 +31,7 @@ public class BydgoszczBZG extends AppCompatActivity {
 
     }
 
-    public void click(View view) {
+    public void clickBDG(View view) {
         Intent intent;
         switch (view.getId()){
             case R.id.BZGButtonFlights:

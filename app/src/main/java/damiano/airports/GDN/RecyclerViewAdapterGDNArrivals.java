@@ -1,6 +1,7 @@
 package damiano.airports.GDN;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -12,21 +13,23 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
 import damiano.airports.R;
 import de.hdodenhof.circleimageview.CircleImageView;
 
-public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>{
+public class RecyclerViewAdapterGDNArrivals extends RecyclerView.Adapter<RecyclerViewAdapterGDNArrivals.ViewHolder>{
 
-    private static final String TAG = "RecyclerViewAdapter";
+    private static final String TAG = "RecyclerViewAdapterGDNArrivals";
 
-    private ArrayList<String> imageNames = new ArrayList<>();
-    private ArrayList<String> images = new ArrayList<>();
+    private ArrayList<String> imageNames;
+    private ArrayList<String> images;
     private Context context;
 
-    public RecyclerViewAdapter(Context context, ArrayList<String> imageNames, ArrayList<String> images) {
+    public RecyclerViewAdapterGDNArrivals(Context context, ArrayList<String> imageNames, ArrayList<String> images) {
         this.imageNames = imageNames;
         this.images = images;
         this.context = context;
@@ -45,7 +48,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         Log.d(TAG, "onBindViewHolder: called.");
 
         Glide.with(context)
-                .asBitmap()
+                .asDrawable()
                 .load(images.get(i))
                 .into(viewHolder.image);
 
@@ -57,6 +60,12 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                 Log.d(TAG, "onClick: clicked on: " + imageNames.get(i));
 
                 Toast.makeText(context, imageNames.get(i), Toast.LENGTH_LONG).show();
+
+//                Intent intent = new Intent(context, GdanskGDNArrival.class);
+//                intent.putExtra("image_url", images.get(i));
+//                intent.putExtra("image_name", imageNames.get(i));
+//                context.startActivity(intent);
+
             }
         });
     }
@@ -74,9 +83,9 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            image = itemView.findViewById(R.id.image);
-            imageName = itemView.findViewById(R.id.image_name);
-            parentLayout = itemView.findViewById(R.id.parent_layout);
+            image = itemView.findViewById(R.id.gdn_arrivals_image);
+            imageName = itemView.findViewById(R.id.gdn_arrivals_image_name);
+            parentLayout = itemView.findViewById(R.id.gdn_arrivals_parent_layout);
         }
     }
 }

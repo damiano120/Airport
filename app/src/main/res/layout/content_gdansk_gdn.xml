@@ -22,30 +22,58 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/GDNButtonArrivals"
+    <ImageView
+        android:id="@+id/GDNArrivalsImage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="8dp"
-        android:onClick="click"
-        android:text="Arrivals"
+        android:onClick="clickGDN"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/GDNTitleTextView" />
+        app:layout_constraintTop_toBottomOf="@+id/GDNTitleTextView"
+        app:srcCompat="@drawable/arrivals" />
 
-    <Button
-        android:id="@+id/GDNButtonDepartures"
+    <TextView
+        android:id="@+id/GDNArrivalsTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:onClick="click"
-        android:text="Departures"
+        android:text="Arrivals"
+        android:textSize="20sp"
+        android:onClick="clickGDN"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/GDNButtonArrivals" />
+        app:layout_constraintTop_toBottomOf="@+id/GDNArrivalsImage" />
+
+    <ImageView
+        android:id="@+id/GDNDeparturesImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="8dp"
+        android:onClick="clickGDN"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/GDNArrivalsTextView"
+        app:srcCompat="@drawable/arrivals" />
+
+    <TextView
+        android:id="@+id/GDNDeparturesTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="Departures"
+        android:textSize="20sp"
+        android:onClick="clickGDN"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/GDNDeparturesImage" />
 
 </android.support.constraint.ConstraintLayout>

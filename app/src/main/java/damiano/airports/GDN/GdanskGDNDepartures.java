@@ -3,12 +3,11 @@ package damiano.airports.GDN;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.widget.TextView;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
-import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import java.io.IOException;
@@ -23,20 +22,23 @@ public class GdanskGDNDepartures extends AppCompatActivity {
     private String name = "GDN Gdansk Departures";
     private String urlAirport = "http://www.airport.gdansk.pl/schedule/departures-table/";
     private Document htmlCode;
-    private TextView GDNDeparturesTitleTextView, GDNDeparturesTextView;
+
+    private ArrayList<String> names = new ArrayList<>();
+    private ArrayList<String> imageUrls = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gdansk_gdndepartures);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        GDNDeparturesTitleTextView = findViewById(R.id.GDNDeparturesTitleTextView);
-        GDNDeparturesTextView = findViewById(R.id.GDNDeparturesTextView);
-        GDNDeparturesTitleTextView.setText(name);
-        GDNDeparturesTextView.setText("Wait...");
         new DownloadFlights().execute();
+    }
+
+    private void initRecyclerView() {
+        RecyclerView recyclerView = findViewById(R.id.gdn_departures_recycler_view);
+        recyclerView.setHasFixedSize(true);
+        RecyclerViewAdapterGDNDepartures adapter = new RecyclerViewAdapterGDNDepartures(this, names, imageUrls);
+        recyclerView.setAdapter(adapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
 
     public class DownloadFlights extends AsyncTask<Void, Void, Void> {
@@ -54,9 +56,6 @@ public class GdanskGDNDepartures extends AppCompatActivity {
         @Override
         protected void onPostExecute(Void aVoid) {
             departures();
-            String departures = "";
-            departures = printText(departures);
-            GDNDeparturesTextView.setText(departures);
             super.onPostExecute(aVoid);
         }
     }
@@ -68,6 +67,7 @@ public class GdanskGDNDepartures extends AppCompatActivity {
         String flightNumber = null;
         String status = null;
         String expectedTime = null;
+        String image = null;
 
 //        DODAJ LOTY
         Elements times = htmlCode.select("td.time");
@@ -75,6 +75,8 @@ public class GdanskGDNDepartures extends AppCompatActivity {
         Elements flightNumbers = htmlCode.select("td.flight");
         Elements statuses = htmlCode.select("td.status");
         Elements expectedTimes = htmlCode.select("td.time");
+        Elements images = htmlCode.select("td.logo");
+
         int j = 0;
         for (int i=0; i<directions.size(); i++){
             time = times.get(j).text();
@@ -94,17 +96,32 @@ public class GdanskGDNDepartures extends AppCompatActivity {
             } else {
                 departuresList.add(new Flight(time, direction, flightNumber, status, expectedTime));
             }
+
+            image = images.get(i).toString();
+            if (image.contains("<img src=\"")) {
+                int index1 = image.indexOf("<img src=\"");
+                int index2 = image.indexOf("\" alt=");
+                image = "http://www.airport.gdansk.pl" + image.substring((index1 + "<img src=\"".length()), index2).trim();
+//                image = "http://www.airport.gdansk.pl" + images.get(i).selectFirst("img[src$=.]");
+            } else if (!image.contains("<img src=\"")) {
+                image = "http://www.airport.gdansk.pl/img/frgt/_c33d9f874d9f0b577f6812c3.jpg";
+            }
+            imageUrls.add(image);
         }
+        printText();
     }
 
-    private String printText(String departures) {
+    private ArrayList printText() {
+        String departure = "";
         for (int i = 0; i < departuresList.size(); i++) {
-            departures += "Gdańsk -> " + departuresList.get(i).getDirection() + " \t" +
+            departure = "Gdańsk -> " + departuresList.get(i).getDirection() + " \t" +
                     departuresList.get(i).getFlightNumber() + " \n" +
                     "Czas " + departuresList.get(i).getTime() + " \t" +
                     "Status " + departuresList.get(i).getStatus() + " \t" +
                     "Czas ocz. " + departuresList.get(i).getExpectedTime() + " \n\n";
+            names.add(departure);
         }
-        return departures;
+        initRecyclerView();
+        return names;
     }
 }

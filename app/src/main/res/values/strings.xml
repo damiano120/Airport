@@ -9,4 +9,5 @@
     <string name="title_activity_gdansk_gdnarrivals">GdanskGDNArrivals</string>
     <string name="title_activity_gdansk_gdndepartures">GdanskGDNDepartures</string>
     <string name="title_activity_gdansk_gdnflights">GdanskGDNFlights</string>
+    <string name="title_activity_gdansk_gdnarrival">GdanskGDNArrival</string>
 </resources>

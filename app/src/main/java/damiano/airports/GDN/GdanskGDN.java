@@ -19,14 +19,22 @@ public class GdanskGDN extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
-    public void click(View view) {
+    public void clickGDN(View view) {
         Intent intent;
         switch (view.getId()){
-            case R.id.GDNButtonArrivals:
+            case R.id.GDNArrivalsImage:
                 intent = new Intent(this, GdanskGDNArrivals.class);
                 startActivity(intent);
                 break;
-            case R.id.GDNButtonDepartures:
+            case R.id.GDNArrivalsTextView:
+                intent = new Intent(this, GdanskGDNArrivals.class);
+                startActivity(intent);
+                break;
+            case R.id.GDNDeparturesImage:
+                intent = new Intent(this, GdanskGDNDepartures.class);
+                startActivity(intent);
+                break;
+            case R.id.GDNDeparturesTextView:
                 intent = new Intent(this, GdanskGDNDepartures.class);
                 startActivity(intent);
                 break;
