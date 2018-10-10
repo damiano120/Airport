@@ -86,7 +86,7 @@
                 android:value="damiano.airports.GDN.GdanskGDN" />
         </activity>
         <activity
-            android:name=".GDN.GdanskGDNArrival"
+            android:name=".FlightDetalis"
             android:label="@string/title_activity_gdansk_gdnarrival"
             android:parentActivityName=".GDN.GdanskGDNArrivals"
             android:theme="@style/AppTheme.NoActionBar">

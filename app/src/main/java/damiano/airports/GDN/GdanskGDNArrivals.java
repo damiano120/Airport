@@ -47,12 +47,12 @@ public class GdanskGDNArrivals extends AppCompatActivity {
         RecyclerView recyclerView = findViewById(R.id.gdn_arrivals_recycler_view);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        RecyclerViewAdapterGDNArrivals adapter = new RecyclerViewAdapterGDNArrivals(this, names, imageUrls);
+        RecyclerViewAdapterGDNArrivals adapter = new RecyclerViewAdapterGDNArrivals(this, names, imageUrls, arrivalsList);
         recyclerView.setAdapter(adapter);
 
     }
 
-    public class DownloadFlights extends AsyncTask<Void, Void, Void> {
+    private class DownloadFlights extends AsyncTask<Void, Void, Void> {
 
         @Override
         protected Void doInBackground(Void... voids) {

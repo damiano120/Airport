@@ -13,11 +13,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.request.RequestOptions;
-import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
+import damiano.airports.Flight;
+import damiano.airports.FlightDetalis;
 import damiano.airports.R;
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -25,14 +25,16 @@ public class RecyclerViewAdapterGDNArrivals extends RecyclerView.Adapter<Recycle
 
     private static final String TAG = "RecyclerViewAdapterGDNArrivals";
 
-    private ArrayList<String> imageNames;
+    private ArrayList<String> descriptions;
     private ArrayList<String> images;
     private Context context;
+    private ArrayList<Flight> arrivalsList;
 
-    public RecyclerViewAdapterGDNArrivals(Context context, ArrayList<String> imageNames, ArrayList<String> images) {
-        this.imageNames = imageNames;
+    public RecyclerViewAdapterGDNArrivals(Context context, ArrayList<String> imageNames, ArrayList<String> images, ArrayList<Flight> arrivalsList) {
+        this.descriptions = imageNames;
         this.images = images;
         this.context = context;
+        this.arrivalsList = arrivalsList;
     }
 
     @NonNull
@@ -52,19 +54,21 @@ public class RecyclerViewAdapterGDNArrivals extends RecyclerView.Adapter<Recycle
                 .load(images.get(i))
                 .into(viewHolder.image);
 
-        viewHolder.imageName.setText(imageNames.get(i));
+        viewHolder.imageName.setText(descriptions.get(i));
 
         viewHolder.parentLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d(TAG, "onClick: clicked on: " + imageNames.get(i));
+                Log.d(TAG, "onClick: clicked on: " + descriptions.get(i));
 
-                Toast.makeText(context, imageNames.get(i), Toast.LENGTH_LONG).show();
+                Toast.makeText(context, descriptions.get(i), Toast.LENGTH_LONG).show();
 
-//                Intent intent = new Intent(context, GdanskGDNArrival.class);
+                GdanskGDNArrivals gdnArrivals = new GdanskGDNArrivals();
+                Intent intent = new Intent(context, FlightDetalis.class);
 //                intent.putExtra("image_url", images.get(i));
-//                intent.putExtra("image_name", imageNames.get(i));
-//                context.startActivity(intent);
+//                intent.putExtra("image_name", descriptions.get(i));
+                intent.putExtra("flightNumber", arrivalsList.get(i).getFlightNumber());
+                context.startActivity(intent);
 
             }
         });
@@ -72,7 +76,7 @@ public class RecyclerViewAdapterGDNArrivals extends RecyclerView.Adapter<Recycle
 
     @Override
     public int getItemCount() {
-        return imageNames.size();
+        return descriptions.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{

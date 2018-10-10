@@ -60,7 +60,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/GDNArrivalsTextView"
-        app:srcCompat="@drawable/arrivals" />
+        app:srcCompat="@drawable/departures" />
 
     <TextView
         android:id="@+id/GDNDeparturesTextView"

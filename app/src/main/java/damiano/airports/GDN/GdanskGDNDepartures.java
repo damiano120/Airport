@@ -41,7 +41,7 @@ public class GdanskGDNDepartures extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
 
-    public class DownloadFlights extends AsyncTask<Void, Void, Void> {
+    private class DownloadFlights extends AsyncTask<Void, Void, Void> {
 
         @Override
         protected Void doInBackground(Void... voids) {
