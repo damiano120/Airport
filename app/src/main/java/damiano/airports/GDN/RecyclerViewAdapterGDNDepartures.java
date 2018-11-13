@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -70,7 +71,7 @@ public class RecyclerViewAdapterGDNDepartures extends RecyclerView.Adapter<Recyc
 
     public class ViewHolder extends RecyclerView.ViewHolder{
 
-        CircleImageView image;
+        ImageView image;
         TextView imageName;
         RelativeLayout parentLayout;
 

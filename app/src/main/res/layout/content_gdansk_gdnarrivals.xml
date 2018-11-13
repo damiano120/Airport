@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-android:id="@+id/gdn_arrivals_parent_layout"
-android:layout_width="match_parent"
-android:layout_height="wrap_content"
-android:padding="10dp">
+    android:id="@+id/gdn_arrivals_parent_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="10dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -11,22 +11,22 @@ android:padding="10dp">
         android:orientation="horizontal"
         android:padding="5dp">
 
-        <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/gdn_arrivals_image"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:src="@mipmap/ic_launcher" />
+        <ImageView
+            android:id="@+id/gdn_arrivals_image"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@mipmap/ic_launcher" />
 
         <TextView
-        android:id="@+id/gdn_arrivals_image_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:layout_marginLeft="20dp"
-        android:layout_toRightOf="@id/gdn_arrivals_image"
-        android:text="txt"
-        android:textColor="#000"
-        android:textSize="15sp" />
+            android:id="@+id/gdn_arrivals_image_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dp"
+            android:layout_toRightOf="@id/gdn_arrivals_image"
+            android:text="txt"
+            android:textColor="#000"
+            android:textSize="15sp" />
 
     </LinearLayout>
-    </RelativeLayout>
+</RelativeLayout>
